@@ -3,9 +3,9 @@ provider  "aws"{
     access_key = "AKIA6KZQ3UPJ6GQFNQLV"
     secret_key = "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"
 }
-resource "aws_iam_role_policy" "Aws-step-policy" {
-  name = "Aws-step-policy"
-  role = aws_iam_role.step_function_role.id
+resource "aws_iam_role_policy" "Aws-step-policy_02" {
+  name = "Aws-step-policy_02"
+  role = aws_iam_role.step_function_role_02.id
   policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -19,8 +19,8 @@ resource "aws_iam_role_policy" "Aws-step-policy" {
 }
 EOF
 }
-resource "aws_iam_role" "step_function_role" {
-  name = "step-function-role"
+resource "aws_iam_role" "step_function_role_02" {
+  name = "step-function-role_02"
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -37,9 +37,9 @@ resource "aws_iam_role" "step_function_role" {
   }
   EOF
 }
-resource "aws_sfn_state_machine" "sfn_state_machine" {
-  name     = "adi-state-machine-28"
-  role_arn = aws_iam_role.step_function_role.arn
+resource "aws_sfn_state_machine" "sfn_state_machine_23" {
+  name     = "adi-state-machine-30"
+  role_arn = aws_iam_role.step_function_role_02.arn
 
   definition = <<EOF
 {
